@@ -11,7 +11,10 @@ Uses Allegro 5​.
 
 Most assets were created by me (Dullstar). The one exception is the font, which is Allegro's built-in font.
 
-----------------------------------------------------
+----
+This repository is a bit cluttered; I mostly grabbed all the files that were lying around and uploaded them, but I caught a few things that were left behind from earlier portions of the development process. For instance, very early builds experimented with olc::Pixel Game Engine (though I eventually swapped it for Allegro simply because I'm more familiar with it), and the header file for that was left behind despite not being used anywhere in the source code (I figured I'd mention that so it's clear why it appears in the history, but isn't credited anywhere). I wasn't planning on uploading the pyxel edit files for the assets either, but they're here now, so those can stay, I guess.
+
+----
 Allegro 5 License: https://liballeg.org/license.html
 
 Copyright © 2008-2010 the Allegro 5 Development Team
@@ -25,4 +28,4 @@ Permission is granted to anyone to use this software for any purpose, including 
     Altered source versions must be plainly marked as such, and must not be misrepresented as being the original software.
 
     This notice may not be removed or altered from any source distribution.
------------------------------------------------------
+----
