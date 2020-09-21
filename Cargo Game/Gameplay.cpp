@@ -13,7 +13,7 @@ Gameplay::Gameplay(int _sizeX, int _sizeY)
 	animate_water(0),
 	ogPointers(ObjectGraphicPointerCollection(terrain_tiles)),
 	water_frame(0),
-	track(sizeX* sizeY, -1),
+	track(sizeX * sizeY, -1),
 	ui(ogPointers, objects, units),
 	actions_menu(nullptr),
 	attack_screen(nullptr),
@@ -61,27 +61,6 @@ void Gameplay::update(
 	std::array<bool, Controller::total_commands>& key_downs,
 	std::array<bool, Controller::total_commands>& key_chars)
 {
-	//std::cout << fElapsedTime << "\n";
-	// UPDATE OBJECTS
-	//float constexpr scrollspeed = 160 / 2.5f;
-
-	// I'm keeping the code around in comments, but design wise in seems like maybe
-	// panning independently of the cursor should be culled.
-	/*
-	if (inputs[(int)command::up])
-		//scrollY -= scrollspeed * fElapsedTime;
-		ui.scrollY -= 2;
-	if (inputs[(int)command::right])
-		//scrollX += scrollspeed * fElapsedTime;
-		ui.scrollX += 2;
-	if (inputs[(int)command::down])
-		//scrollY += scrollspeed * fElapsedTime;
-		ui.scrollY += 2;
-	if (inputs[(int)command::left])
-		//scrollX -= scrollspeed * fElapsedTime;
-		ui.scrollX -= 2;
-		*/
-
 	auto check_tile_clear = [&](int check_x, int check_y)
 	{
 		if (ui.cursor.is_tile_clear(check_x, check_y)
@@ -296,7 +275,7 @@ void Gameplay::update(
 		ui.scrollY = constants::mapsizeY() * constants::tilesize() - constants::screensizeY();
 }
 
-void Gameplay::draw(ALLEGRO_BITMAP* buffer1, ALLEGRO_BITMAP* buffer2, ALLEGRO_BITMAP* buffer3)
+void Gameplay::draw()
 {
 	// Note: because of the calling context for this function, it's okay to
 	// mess with the active draw buffer. It will always be set at buffer1 at the start of the function.
@@ -350,12 +329,12 @@ void Gameplay::draw(ALLEGRO_BITMAP* buffer1, ALLEGRO_BITMAP* buffer2, ALLEGRO_BI
 	}
 
 	// note that the buffer gets changed internally by this function
-	ui.draw(buffer2);
+	ui.draw(constants::buffer2);
 
 	// Finally take care of buffer3
-	al_set_target_bitmap(buffer3);
+	al_set_target_bitmap(constants::buffer3);
 	al_clear_to_color(al_map_rgba(0, 0, 0, 0));
-	if (actions_menu != nullptr) actions_menu->draw(&ui, units, objects, terrain, buffer1);
+	if (actions_menu != nullptr) actions_menu->draw(&ui, units, objects, terrain, constants::buffer1);
 	if (attack_screen != nullptr) attack_screen->draw();
 	if (victory_screen != nullptr) victory_screen->draw();
 }

@@ -173,7 +173,6 @@
     <ClInclude Include="Config.h" />
     <ClInclude Include="MainGame.h" />
     <ClInclude Include="Objects.h" />
-    <ClInclude Include="olcPixelGameEngine.h" />
     <ClInclude Include="RNG.h" />
     <ClInclude Include="Tileset.h" />
     <ClInclude Include="UI.h" />

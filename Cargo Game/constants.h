@@ -1,6 +1,7 @@
 #pragma once
+#include <allegro5/allegro.h>
 #include <allegro5/allegro_font.h>
-//#include "RNG.h"
+#include "RNG.h"
 class Config;
 class MainGame;
 
@@ -35,6 +36,9 @@ public:
 	static int get_index(int x, int y);
 	static int ui_size_x();
 	static ALLEGRO_FONT* font;
-	//static RNG rng;
+	static ALLEGRO_BITMAP* buffer1;
+	static ALLEGRO_BITMAP* buffer2;
+	static ALLEGRO_BITMAP* buffer3;
+	static RNG rng;
 	friend class Config;
 };

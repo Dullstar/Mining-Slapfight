@@ -33,5 +33,5 @@ public:
 		std::array<bool, Controller::total_commands>& inputs, 
 		std::array<bool, Controller::total_commands>& key_downs,
 		std::array<bool, Controller::total_commands>& key_chars) override;
-	void draw(ALLEGRO_BITMAP* buffer1, ALLEGRO_BITMAP* buffer2, ALLEGRO_BITMAP* buffer3) override;
+	void draw() override;
 };

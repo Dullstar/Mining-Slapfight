@@ -39,9 +39,9 @@ MainGame::MainGame(int x, int y)
 	//                      Buffer 2: ui area during gameplay size
 	//                      Buffer 3: whole screen
 	// Buffers 1 and 2 are non-overlapping, buffer 3 overlaps everything.
-	buffer1 = al_create_bitmap(x, y);
-	buffer2 = al_create_bitmap(constants::ui_size_x(), y);
-	buffer3 = al_create_bitmap((x + constants::ui_size_x()), y);
+	constants::buffer1 = al_create_bitmap(x, y);
+	constants::buffer2 = al_create_bitmap(constants::ui_size_x(), y);
+	constants::buffer3 = al_create_bitmap((x + constants::ui_size_x()), y);
 }
 
 MainGame::~MainGame()
@@ -50,8 +50,8 @@ MainGame::~MainGame()
 	al_destroy_display(display);
 	al_destroy_timer(timer);
 	al_destroy_event_queue(queue);
-	al_destroy_bitmap(buffer1);
-	al_destroy_bitmap(buffer2);
+	al_destroy_bitmap(constants::buffer1);
+	al_destroy_bitmap(constants::buffer2);
 }
 
 void MainGame::GameLoop()
@@ -92,23 +92,23 @@ void MainGame::GameLoop()
 
 		if (redraw && al_is_event_queue_empty(queue))
 		{
-			al_set_target_bitmap(buffer1);
+			al_set_target_bitmap(constants::buffer1);
 			al_clear_to_color(al_map_rgb(0, 0, 0));
-			currentState->draw(buffer1, buffer2, buffer3);
+			currentState->draw();
 			al_set_target_bitmap(al_get_backbuffer(display));
-			al_draw_scaled_bitmap(buffer1,
+			al_draw_scaled_bitmap(constants::buffer1,
 				0, 0, 
 				constants::screensizeX(), constants::screensizeY(),
 				0, 0, 
 				constants::screensizeX() * constants::pixelsize(), constants::screensizeY() * constants::pixelsize(), 
 				0);
-			al_draw_scaled_bitmap(buffer2,
+			al_draw_scaled_bitmap(constants::buffer2,
 				0, 0,
 				constants::ui_size_x(), constants::screensizeY(),
 				constants::screensizeX() * constants::pixelsize(), 0,
 				constants::ui_size_x() * constants::pixelsize(), constants::screensizeY() * constants::pixelsize(),
 				0);
-			al_draw_scaled_bitmap(buffer3,
+			al_draw_scaled_bitmap(constants::buffer3,
 				0, 0,
 				constants::screensizeX() + constants::ui_size_x(), constants::screensizeY(),
 				0, 0,
