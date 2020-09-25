@@ -1,8 +1,4 @@
 #include "Controller.h"
-#include "constants.h"
-#include "MainGame.h"
-#include <iostream>
-
 
 Controller::Controller()
 {
