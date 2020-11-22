@@ -90,7 +90,7 @@ void Gameplay::update(
 	}
 	else if (victory_screen != nullptr)
 	{
-		// Do nothing.
+		// Do nothing. Exists so we skip the else branch.
 	}
 	else
 	{

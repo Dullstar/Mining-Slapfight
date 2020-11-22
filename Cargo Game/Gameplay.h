@@ -1,10 +1,11 @@
 #pragma once
-#include "GameState.h"
 #include <vector>
+#include <memory>
+
+#include "GameState.h"
 #include "Tileset.h"
 #include "Controller.h"
 #include "Objects.h"
-#include <memory>
 #include "UI.h"
 
 class Gameplay : public GameState

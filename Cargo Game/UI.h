@@ -19,8 +19,6 @@ class ActionsMenu;
 class Cursor
 {
 private:
-	// int screen_x;    // might be handy later, so I'm keeping this commented
-	// int screen_y;    // to remember the idea. But now it's not really needed.
 	UI* ui;
 	OG friendly;
 	OG neutral;

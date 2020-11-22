@@ -59,6 +59,7 @@ public:
 	OG puncher_bot_player_2;
 	OG worker_player_1;
 	OG worker_player_2;
+	OG placeholder;
 	ObjectGraphicPointerCollection(Tileset& tileset);
 };
 

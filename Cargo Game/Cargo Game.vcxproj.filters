@@ -51,6 +51,9 @@
     <ClCompile Include="Units.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MainGame.h">
@@ -87,6 +90,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Units.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -161,6 +170,9 @@
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="graphics\p2workerbot.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="graphics\placeholder.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

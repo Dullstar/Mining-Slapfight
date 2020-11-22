@@ -48,6 +48,7 @@ ObjectGraphicPointerCollection::ObjectGraphicPointerCollection(Tileset& tileset)
 	puncher_bot_player_2 = std::make_shared<ObjectGraphic>("graphics/p2puncherbot.png");
 	worker_player_1 = std::make_shared<ObjectGraphic>("graphics/p1workerbot.png");
 	worker_player_2 = std::make_shared<ObjectGraphic>("graphics/p2workerbot.png");
+	placeholder = std::make_shared<ObjectGraphic>("graphics/placeholder.png");
 }
 
 std::vector<int> Object::collision_area_1x1(int _x, int _y)
