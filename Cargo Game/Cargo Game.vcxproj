@@ -159,6 +159,7 @@
     <ClCompile Include="GameState.cpp" />
     <ClCompile Include="MainGame.cpp" />
     <ClCompile Include="Objects.cpp" />
+    <ClCompile Include="Player.cpp" />
     <ClCompile Include="RNG.cpp" />
     <ClCompile Include="Tileset.cpp" />
     <ClCompile Include="UI.cpp" />
@@ -173,6 +174,8 @@
     <ClInclude Include="Config.h" />
     <ClInclude Include="MainGame.h" />
     <ClInclude Include="Objects.h" />
+    <ClInclude Include="Player.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="RNG.h" />
     <ClInclude Include="Tileset.h" />
     <ClInclude Include="UI.h" />
@@ -199,6 +202,7 @@
     <Image Include="graphics\p2workerbot.png" />
     <Image Include="graphics\p2_mine_ore.png" />
     <Image Include="graphics\p2_mine_wood.png" />
+    <Image Include="graphics\placeholder.png" />
     <Image Include="graphics\resource_gold.png" />
     <Image Include="graphics\resource_iron.png" />
     <Image Include="graphics\resource_tree.png" />
