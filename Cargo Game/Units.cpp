@@ -16,12 +16,12 @@ Unit::Unit(int x, int y, char player, OG graphic, std::string name)
 {
 }
 
-std::vector<int> Unit::collision_area()
+std::vector<int> Unit::collision_area() const
 {
 	return Object::collision_area_1x1(x, y);
 }
 
-std::vector<int> Unit::catchment_area()
+std::vector<int> Unit::catchment_area() const
 {
 	return Object::catchment_area_1x1(x, y);
 }
@@ -32,7 +32,7 @@ std::vector<int> Unit::catchment_area()
 // because a consequence of this is that it's very likely that while you can't
 // stop on an object or water, you can pass over it - at least in the display.
 // The implementation for actually inputting movement commands would probably stop it.
-std::vector<int> Unit::get_moves()
+std::vector<int> Unit::get_moves() const
 {
 	std::vector<int> moves;
 	if (stats.action == true) return moves;

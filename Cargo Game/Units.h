@@ -5,9 +5,9 @@ class Unit : public Object
 {
 public:
 	Unit(int x, int y, char player, OG graphic, std::string name);
-	std::vector<int> collision_area() override;
-	std::vector<int> catchment_area() override;
-	std::vector<int> get_moves() override;
+	std::vector<int> collision_area() const override;
+	std::vector<int> catchment_area() const override;
+	std::vector<int> get_moves() const override;
 };
 
 class Worker : public Unit

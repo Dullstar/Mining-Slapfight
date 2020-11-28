@@ -1,9 +1,11 @@
 #include "Player.h"
 
 Player::Player(char player_num, const OGPC& ogpc, int _scrollX, int _scrollY)
-	: scrollX(_scrollX), scrollY(_scrollY), player_num_m(player_num), ogPointers(ogpc)
+	: scrollX(_scrollX), scrollY(_scrollY), money(0), player_num_m(player_num), ogPointers(ogpc)
 {
-	assert(player_num_m == 1 || player_num_m == 2);
+	if (player_num_m < 1) player_num_m = 1;
+	else if (player_num_m > 2) player_num_m = 2;
+
 }
 
 char Player::get_player_num() const
@@ -13,7 +15,7 @@ char Player::get_player_num() const
 
 // This design still isn't really ideal, but it's an improvement over what it replaced,
 // since at least all these are in the one place now.
-OG Player::get_unit_graphic(object_type _object_type)
+OG Player::get_unit_graphic(object_type _object_type) const
 {
 	auto select = [&](auto p1, auto p2)
 	{

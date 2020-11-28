@@ -29,7 +29,7 @@ private:
 public:
 	ObjectGraphic(const char* filename);
 	~ObjectGraphic();
-	void draw(int objectX, int objectY, int screenX, int screenY);
+	void draw(int objectX, int objectY, int screenX, int screenY) const;
 };
 
 typedef std::shared_ptr<ObjectGraphic> OG;
@@ -93,15 +93,15 @@ protected:
 public:
 	Object(int x, int y, char player, OG graphic, std::string name);
 	virtual ~Object() = default;
-	virtual void draw(int screenX, int screenY);
-	virtual void ui_draw(int x, int y);
-	int get_x();
-	int get_y();
-	char get_player();
-	object_type get_type();
-	virtual std::vector<int> collision_area() = 0;
-	virtual std::vector<int> catchment_area() = 0;
-	virtual std::vector<int> get_moves();
+	virtual void draw(int screenX, int screenY) const;
+	virtual void ui_draw(int x, int y) const;
+	int get_x() const;
+	int get_y() const;
+	char get_player() const;
+	object_type get_type() const;
+	virtual std::vector<int> collision_area() const = 0;
+	virtual std::vector<int> catchment_area() const = 0;
+	virtual std::vector<int> get_moves() const;
 	void move(int new_x, int new_y);
 	void move_relative(int dx, int dy);
 	std::string name;
@@ -116,8 +116,8 @@ private:
 	OG graphic2;
 public:
 	MainBuilding(int x, int y, char player, OG graphic);
-	std::vector<int> collision_area() override;
-	std::vector<int> catchment_area() override;
+	std::vector<int> collision_area() const override;
+	std::vector<int> catchment_area() const override;
 };
 
 enum class Resource
@@ -136,12 +136,12 @@ private:
 	int amount;
 public:
 	ResourceNode(int x, int y, Resource _type, int _amount, OG _graphic, OG _mine_graphic1, OG _mine_graphic2);
-	std::vector<int> collision_area() override;
-	std::vector<int> catchment_area() override;
-	void draw(int screenX, int screenY) override;
-	void ui_draw(int x, int y) override;
+	std::vector<int> collision_area() const override;
+	std::vector<int> catchment_area() const override;
+	void draw(int screenX, int screenY) const override;
+	void ui_draw(int x, int y) const override;
 	void create_mine(char player);
 	void capture_mine(char player);
-	Resource get_node_type();
-	int get_value();
+	Resource get_node_type() const;
+	int get_value() const;
 };

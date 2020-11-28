@@ -17,7 +17,7 @@ ObjectGraphic::~ObjectGraphic()
 // a separate function if we want to implement, for example, smooth movement of mobile
 // objects between tiles!
 // (Hint: use constants::tilesize() if your coordinates are in tile space)
-void ObjectGraphic::draw(int objectX, int objectY, int screenX, int screenY)
+void ObjectGraphic::draw(int objectX, int objectY, int screenX, int screenY) const
 {
 	al_draw_bitmap(bitmap, objectX - screenX, objectY - screenY, 0);
 }
@@ -138,26 +138,26 @@ Object::Object(int x, int y, char player, OG graphic, std::string name)
 {
 }
 
-void Object::draw(int screenX, int screenY)
+void Object::draw(int screenX, int screenY) const
 {
 	graphic->draw(constants::tilesize() * x, constants::tilesize() * y, screenX, screenY);
 }
 
-void Object::ui_draw(int x, int y)
+void Object::ui_draw(int x, int y) const
 {
 	graphic->draw(x, y, 0, 0);
 }
 
-int Object::get_x() { return x; }
+int Object::get_x() const { return x; }
 
-int Object::get_y() { return y; }
+int Object::get_y() const { return y; }
 
-char Object::get_player()
+char Object::get_player() const
 {
 	return player;
 }
 
-object_type Object::get_type()
+object_type Object::get_type() const
 {
 	return objectType;
 }
@@ -165,7 +165,7 @@ object_type Object::get_type()
 // Returns an empty vector usually. Units overrides this.
 // This function exists purely for convenient usage of the object interface.
 // The default is thus intended to do basically nothing.
-std::vector<int> Object::get_moves()
+std::vector<int> Object::get_moves() const
 {
 	return std::vector<int>();
 }
@@ -191,12 +191,12 @@ MainBuilding::MainBuilding(int x, int y, char player, OG graphic)
 	stats.hp = 100;
 }
 
-std::vector<int> MainBuilding::collision_area()
+std::vector<int> MainBuilding::collision_area() const
 {
 	return collision_area_3x3(x, y);
 }
 
-std::vector<int> MainBuilding::catchment_area()
+std::vector<int> MainBuilding::catchment_area() const
 {
 	return catchment_area_3x3(x, y);
 }
@@ -210,24 +210,24 @@ ResourceNode::ResourceNode(int x, int y, Resource _type, int _amount, OG _graphi
 	else if (type == Resource::gold) name = "Gold";
 }
 
-std::vector<int> ResourceNode::collision_area()
+std::vector<int> ResourceNode::collision_area() const
 {
 	return collision_area_1x1(x, y);
 }
 
-std::vector<int> ResourceNode::catchment_area()
+std::vector<int> ResourceNode::catchment_area() const
 {
 	return catchment_area_1x1(x, y);
 }
 
-void ResourceNode::draw(int screenX, int screenY)
+void ResourceNode::draw(int screenX, int screenY) const
 {
 	graphic->draw(constants::tilesize() * x, constants::tilesize() * y, screenX, screenY);
 	if (player == 1) mine_graphic->draw(constants::tilesize() * x, constants::tilesize() * y, screenX, screenY);
 	else if (player == 2) mine_graphicP2->draw(constants::tilesize() * x, constants::tilesize() * y, screenX, screenY);
 }
 
-void ResourceNode::ui_draw(int x, int y)
+void ResourceNode::ui_draw(int x, int y) const
 {
 	graphic->draw(x, y, 0, 0);
 	if (player == 1) mine_graphic->draw(x, y, 0, 0);
@@ -247,12 +247,12 @@ void ResourceNode::capture_mine(char _player)
 	player = _player;
 }
 
-Resource ResourceNode::get_node_type()
+Resource ResourceNode::get_node_type() const
 {
 	return type;
 }
 
-int ResourceNode::get_value()
+int ResourceNode::get_value() const
 {
 	return amount;
 }
