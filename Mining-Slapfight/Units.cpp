@@ -67,7 +67,6 @@ std::vector<int> Unit::get_moves() const
 			visited.emplace_back(index);
 			moves.emplace_back(index);
 		}
-        return index;
 	};
 	while (total_moves > 0)
 	{
