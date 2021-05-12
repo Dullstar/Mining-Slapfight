@@ -48,6 +48,7 @@ std::vector<int> Unit::get_moves() const
 		if (index < 0) return 0;
 		if (index >= constants::mapsizeX() * constants::mapsizeY())
 			return (constants::mapsizeX() * constants::mapsizeY()) - 1;
+        return index;
 	};
 
 	// This seems really inefficient, but I can't think of a better way right now
